@@ -1,20 +1,31 @@
 # Metacritic API
 
-## Installation
+- [Metacritic API](#metacritic-api)
+- [Installation](#installation)
+  - [Clone api repository](#clone-api-repository)
+  - [Install dependencies](#install-dependencies)
+  - [Start server](#start-server)
+- [Usage](#usage)
+  - [Get game info](#get-game-info)
+  - [Python example:](#python-example)
+  - [Sample response](#sample-response)
+- [Hosted Endpoint](#hosted-endpoint)
 
-### Clone api repository
+# Installation
+
+## Clone api repository
 
 ```bash
 git clone https://github.com/danger89/metacritic_api.git
 ```
 
-### Install dependencies
+## Install dependencies
 
 ```bash
 apt install php-common libapache2-mod-php php-cli php-curl
 ```
 
-### Start server
+## Start server
 
 ```bash
 php -S localhost:3000
@@ -22,9 +33,9 @@ php -S localhost:3000
 
 API will be accessible at http://localhost:3000/
 
-## Usage
+# Usage
 
-### Get game info
+## Get game info
 
 Send GET request with the following parameters:
 - `game_title`
@@ -32,14 +43,14 @@ Send GET request with the following parameters:
 
 http://localhost:3000/?game_title=The%20Elder%20Scrolls%20V:%20Skyrim&platform=pc
 
-### Python example:
+## Python example:
 
 ```python
 import requests
 response = requests.get('http://localhost:3000/', params={'game_title': 'The Elder Scrolls V: Skyrim', 'platform': 'pc'})
 ```
 
-### Sample response
+## Sample response
 
 ```json
 {
@@ -70,3 +81,7 @@ response = requests.get('http://localhost:3000/', params={'game_title': 'The Eld
   "cheat_url": "http://www.gamefaqs.com/console/pc/code/615805.html"
 }
 ```
+
+# Hosted Endpoint
+
+A hosted instance of the endpoint is available [here](https://metacritic-api.azurewebsites.net/).
