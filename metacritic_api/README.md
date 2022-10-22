@@ -13,16 +13,28 @@
 
 # Installation
 
+## Clone project repository
+
+```bash
+git clone https://github.com/millionhz/LUMS-CS334-PROJECT.git
+```
+
+## Navigate to api folder
+
+```bash
+cd metacritic_api
+```
+
 ## Clone api repository
 
 ```bash
-git clone https://github.com/danger89/metacritic_api.git
+git clone https://github.com/millionhz/metacritic_api.git
 ```
 
 ## Install dependencies
 
 ```bash
-apt install php-common libapache2-mod-php php-cli php-curl
+sudo apt install php-common libapache2-mod-php php-cli php-curl
 ```
 
 ## Start server
