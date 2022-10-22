@@ -22,7 +22,7 @@ git clone https://github.com/millionhz/LUMS-CS334-PROJECT.git
 ## Navigate to api folder
 
 ```bash
-cd metacritic_api
+cd api
 ```
 
 ## Clone api repository
