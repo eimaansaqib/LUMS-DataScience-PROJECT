@@ -2,6 +2,8 @@
 
 - [Metacritic API](#metacritic-api)
 - [Installation](#installation)
+  - [Clone project repository](#clone-project-repository)
+  - [Navigate to api folder](#navigate-to-api-folder)
   - [Clone api repository](#clone-api-repository)
   - [Install dependencies](#install-dependencies)
   - [Start server](#start-server)
