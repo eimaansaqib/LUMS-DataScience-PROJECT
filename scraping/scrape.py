@@ -29,13 +29,15 @@ def get_data(game_title, platform):
 
 ENDPOINT = "https://metacritic-api.azurewebsites.net/"
 PLATFORM = "playstation-4"
+DATASET_PATH = "../Video_games_esrb_rating.csv"
+JSON_NAME = "ps4.json"
 
-data = pd.read_csv("../Video_games_esrb_rating.csv")
+data = pd.read_csv(DATASET_PATH)
 responses = []
 
 for idx, title in enumerate(data["title"]):
     print(idx, title)
     responses.append(get_data(title, PLATFORM))
 
-with open("ps4.json", "w", encoding="UTF-8") as outfile:
+with open(JSON_NAME, "w", encoding="UTF-8") as outfile:
     dump(responses, outfile)
