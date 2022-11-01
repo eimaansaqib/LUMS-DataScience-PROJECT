@@ -1,5 +1,6 @@
 from json import dump
 from time import sleep
+import argparse
 import pandas as pd
 from requests import get
 
@@ -25,10 +26,19 @@ def get_data(game_title, platform, endpoint):
         sleep(1)
         return get_data(title, platform, endpoint)
 
-ENDPOINT = "https://metacritic-api.azurewebsites.net/"
+
+parser = argparse.ArgumentParser(description="Metacritic WebScraper")
+parser.add_argument("platform", action="store", type=str,
+                    help="metacritic platform identifier")
+parser.add_argument("output", action="store",
+                    type=str, help="output file name")
+
+parsed_args = parser.parse_args()
+
+ENDPOINT = "http://localhost:3000/"
 DATASET_PATH = "../Video_games_esrb_rating.csv"
-PLATFORM = "playstation-4"
-JSON_NAME = "ps4.json"
+PLATFORM = parsed_args.platform
+JSON_NAME = parsed_args.output
 
 data = pd.read_csv(DATASET_PATH)
 responses = []
