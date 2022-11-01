@@ -4,7 +4,7 @@ import pandas as pd
 from requests import get
 
 
-def get_data(game_title, platform):
+def get_data(game_title, platform, endpoint):
     """Get data from metacritic
 
     :param game_title: title of the game
@@ -14,9 +14,8 @@ def get_data(game_title, platform):
     :return: data from metacrictic
     :rtype: dict
     """
-
     try:
-        res_json = get(ENDPOINT, params={
+        res_json = get(endpoint, params={
             "game_title": game_title, "platform": platform}).json()
 
         res_json["name"] = game_title
@@ -24,12 +23,11 @@ def get_data(game_title, platform):
 
     except ConnectionError:
         sleep(1)
-        return get_data(title, platform)
-
+        return get_data(title, platform, endpoint)
 
 ENDPOINT = "https://metacritic-api.azurewebsites.net/"
-PLATFORM = "playstation-4"
 DATASET_PATH = "../Video_games_esrb_rating.csv"
+PLATFORM = "playstation-4"
 JSON_NAME = "ps4.json"
 
 data = pd.read_csv(DATASET_PATH)
@@ -37,7 +35,7 @@ responses = []
 
 for idx, title in enumerate(data["title"]):
     print(idx, title)
-    responses.append(get_data(title, PLATFORM))
+    responses.append(get_data(title, PLATFORM, ENDPOINT))
 
 with open(JSON_NAME, "w", encoding="UTF-8") as outfile:
     dump(responses, outfile)
