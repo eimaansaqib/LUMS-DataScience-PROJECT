@@ -30,7 +30,7 @@ cd api
 ## Clone api repository
 
 ```bash
-git clone https://github.com/millionhz/metacritic_api.git
+git clone https://github.com/danger89/metacritic_api.git
 ```
 
 ## Install dependencies
